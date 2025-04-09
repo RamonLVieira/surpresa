@@ -84,25 +84,39 @@ p {
     font-weight: bold;
 }
 
-/* RESPONSIVO */
+/* RESPONSIVO — MOBILE COM TUDO MAIOR */
 @media screen and (max-width: 600px) {
+    body {
+        padding: 16px;
+    }
+
     h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     p, .label {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .valor {
-        font-size: 2rem;
-    }
-
-    .moldura {
-        max-width: 650px;
+        font-size: 3rem;
     }
 
     .mensagem {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
+    }
+
+    .moldura {
+        max-width: 100%;
+        padding: 8px;
+    }
+
+    .carrossel img {
+        border-radius: 18px;
+    }
+
+    .bloco {
+        min-width: 100px;
+        padding: 14px;
     }
 }
