@@ -1,48 +1,47 @@
-// Data e hora inicial
 const dataInicial = new Date("2021-11-02T23:27:00");
 
-// Atualização contínua do contador
 function atualizarContador() {
     const agora = new Date();
-    let diferenca = agora - dataInicial;
 
-    const msEmUmSegundo = 1000;
-    const msEmUmMinuto = msEmUmSegundo * 60;
-    const msEmUmaHora = msEmUmMinuto * 60;
-    const msEmUmDia = msEmUmaHora * 24;
-    const msEmUmAno = msEmUmDia * 365.25;
+    let anos = agora.getFullYear() - dataInicial.getFullYear();
+    let meses = agora.getMonth() - dataInicial.getMonth();
+    let dias = agora.getDate() - dataInicial.getDate();
+    let horas = agora.getHours() - dataInicial.getHours();
+    let minutos = agora.getMinutes() - dataInicial.getMinutes();
+    let segundos = agora.getSeconds() - dataInicial.getSeconds();
 
-    const anos = Math.floor(diferenca / msEmUmAno);
-    diferenca %= msEmUmAno;
+    if (segundos < 0) {
+        segundos += 60;
+        minutos--;
+    }
+    if (minutos < 0) {
+        minutos += 60;
+        horas--;
+    }
+    if (horas < 0) {
+        horas += 24;
+        dias--;
+    }
+    if (dias < 0) {
+        const mesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+        dias += mesAnterior;
+        meses--;
+    }
+    if (meses < 0) {
+        meses += 12;
+        anos--;
+    }
 
-    const dias = Math.floor(diferenca / msEmUmDia);
-    diferenca %= msEmUmDia;
-
-    const horas = Math.floor(diferenca / msEmUmaHora);
-    diferenca %= msEmUmaHora;
-
-    const minutos = Math.floor(diferenca / msEmUmMinuto);
-    diferenca %= msEmUmMinuto;
-
-    const segundos = Math.floor(diferenca / msEmUmSegundo);
-
-    const texto = `${anos} anos, ${dias} dias, ${horas}h ${minutos}min ${segundos}s`;
+    const texto = `${anos} ${anos === 1 ? 'ano' : 'anos'}, ` +
+                  `${meses} ${meses === 1 ? 'mês' : 'meses'}, ` +
+                  `${dias} ${dias === 1 ? 'dia' : 'dias'}, ` +
+                  `${horas} ${horas === 1 ? 'hora' : 'horas'}, ` +
+                  `${minutos} ${minutos === 1 ? 'minuto' : 'minutos'} e ` +
+                  `${segundos} ${segundos === 1 ? 'segundo' : 'segundos'}`;
 
     document.getElementById("contador").textContent = texto;
 }
 
 setInterval(atualizarContador, 1000);
-atualizarContador(); // chamada inicial
+atualizarContador();
 
-// Carrossel de imagens com transição suave
-let indice = 1;
-const imagem = document.getElementById("imagem-carrossel");
-
-setInterval(() => {
-    imagem.style.opacity = 0;
-    setTimeout(() => {
-        indice = (indice % 15) + 1;
-        imagem.src = `imagens/imagem${indice}.jpg`;
-        imagem.style.opacity = 1;
-    }, 500);
-}, 3000);
