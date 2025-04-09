@@ -1,3 +1,4 @@
+// === CONTADOR DE TEMPO POR EXTENSO ===
 const dataInicial = new Date("2021-11-02T23:27:00");
 
 function atualizarContador() {
@@ -45,3 +46,15 @@ function atualizarContador() {
 setInterval(atualizarContador, 1000);
 atualizarContador();
 
+// === CARROSSEL DE IMAGENS COM TRANSIÇÃO SUAVE ===
+let indice = 1;
+const imagem = document.getElementById("imagem-carrossel");
+
+setInterval(() => {
+    imagem.style.opacity = 0;
+    setTimeout(() => {
+        indice = (indice % 15) + 1;
+        imagem.src = `imagens/imagem${indice}.jpg`;
+        imagem.style.opacity = 1;
+    }, 500);
+}, 3000);
