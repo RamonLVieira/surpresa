@@ -3,10 +3,10 @@
 body {
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    background: linear-gradient(to right, #dbeafe, #fef3c7);
+    background: linear-gradient(to right, #4b0082, #1e3a8a);
     margin: 0;
     padding: 20px;
-    color: #1e293b;
+    color: #f8fafc;
 }
 
 h1 {
@@ -17,12 +17,12 @@ h1 {
 h2 {
     font-size: 2rem;
     margin-top: 10px;
-    color: #334155;
+    color: #e0e7ff;
 }
 
 p {
     font-size: 1.2rem;
-    color: #475569;
+    color: #cbd5e1;
 }
 
 .carrossel {
@@ -33,35 +33,15 @@ p {
     max-width: 90%;
     height: auto;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     transition: opacity 1s ease-in-out;
 }
 
 .mensagem {
     margin-top: 40px;
     font-size: 1.4rem;
-    color: #1e40af;
+    color: #dbeafe;
     font-weight: bold;
-}
-
-audio {
-    margin-top: 30px;
-}
-
-button {
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 12px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #1e40af;
 }
 
 @media screen and (max-width: 600px) {
@@ -75,10 +55,5 @@ button:hover {
 
     .mensagem {
         font-size: 1.2rem;
-    }
-
-    button {
-        font-size: 0.9rem;
-        padding: 8px 16px;
     }
 }
