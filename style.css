@@ -1,105 +1,122 @@
-/* Estilos Base – Mobile (até 600px de largura) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap');
+
 body {
-  /* Fonte base e background podem já estar definidos no CSS original */
-  font-family: sans-serif; /* Exemplo de fonte genérica (ajuste conforme necessário) */
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #4b0082, #1e3a8a);
+    margin: 0;
+    padding: 20px;
+    color: #f8fafc;
 }
 
 h1 {
-  font-size: 1.5em;            /* Título menor no mobile (~24px se base 16px) */
-  margin: 10px 0;              /* Espaçamento vertical compacto */
-  text-align: center;          /* Centralizado no mobile para aparência limpa */
+    font-size: 2.5rem;
+    margin-top: 20px;
 }
 
-.mensagem {
-  font-size: 1em;              /* Tamanho de fonte normal (~16px) para texto */
-  line-height: 1.4;            /* Altura da linha para legibilidade em mobile */
-  margin: 10px 0;              /* Espaçamento vertical compacto */
-  text-align: center;          /* Texto centralizado (opcional, dependendo do design) */
+p {
+    font-size: 1.2rem;
+    color: #cbd5e1;
 }
 
-.contador {
-  display: flex;               /* Usa flexbox para dispor os blocos do contador em linha */
-  flex-wrap: wrap;             /* Permite quebrar linha se não caber tudo numa só */
-  justify-content: center;     /* Centraliza os blocos do contador horizontalmente */
-  margin: 10px 0;              /* Espaço acima/abaixo do conjunto do contador */
+/* CONTADOR */
+.contador-blocos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
 }
 
-.contador .bloco {
-  text-align: center;          /* Centraliza o conteúdo (valor e label) dentro de cada bloco */
-  margin: 5px;                 /* Espaçamento entre os blocos (pequeno no mobile) */
+.bloco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0f172a;
+    border-radius: 12px;
+    padding: 10px 16px;
+    min-width: 80px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-.contador .valor {
-  display: block;              /* Ocupa linha separada do label */
-  font-size: 2em;              /* Valor numérico em destaque (aprox. 32px no mobile) */
-  font-weight: bold;           /* Deixa o número em negrito para destaque */
+.valor {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: #38bdf8;
+    letter-spacing: 2px;
 }
 
-.contador .label {
-  display: block;              /* Ocupa linha separada, abaixo do valor */
-  font-size: 0.9em;            /* Texto do label um pouco menor (~14px) */
-  color: #555;                 /* Cor levemente atenuada para diferenciar do valor */
+.label {
+    font-size: 0.9rem;
+    color: #f1f5f9;
+    margin-top: 5px;
+}
+
+/* CARROSSEL */
+.carrossel {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
 }
 
 .moldura {
-  text-align: center;          /* Centraliza a imagem do carrossel dentro da moldura */
-  margin: 10px 0;              /* Espaço vertical ao redor da área de imagem */
-  /* Podemos adicionar borda ou background aqui se desejado, ex:
-     border: 4px solid #eee;
-     border-radius: 5px;
-     padding: 5px;
-     (Apenas se quiser dar uma aparência de “moldura” à imagem) */
+    display: inline-block;
+    padding: 6px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #7c3aed, #3b82f6);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+    width: 100%;
+    max-width: 500px;
 }
 
 .carrossel img {
-  width: 100%;                 /* Imagem ocupa 100% do container em mobile (layout fluido) */
-  height: auto;                /* Altura ajusta proporcionalmente à largura */
-  display: block;              /* Tratamos a imagem como bloco para centralização funcionar */
-  margin: 0 auto;              /* Centraliza a imagem (bloco) dentro do container .moldura */
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+    transition: opacity 1s ease-in-out;
 }
 
-/* Estilos de Desktop – aplicados quando a largura da tela for superior a 600px */
-@media (min-width: 601px) {
-  h1 {
-    font-size: 2.5em;          /* Aumenta bastante o título no desktop (~40px) */
-    margin: 20px 0;            /* Mais espaço acima/abaixo do título */
-    /* text-align: center;  (se desejar manter centralizado, já definido acima) */
-  }
+.mensagem {
+    margin-top: 40px;
+    font-size: 1.4rem;
+    color: #dbeafe;
+    font-weight: bold;
+}
 
-  .mensagem {
-    font-size: 1.2em;          /* Aumenta um pouco a fonte da mensagem (~19px) */
-    line-height: 1.6;          /* Maior altura de linha para linhas mais compridas */
-    margin: 15px 0;            /* Margens maiores em torno do texto da mensagem */
-    /* text-align: center;  (mantém centralizado se definido no base) */
-  }
+/* RESPONSIVO — MOBILE COM TUDO MAIOR */
+@media screen and (max-width: 600px) {
+    body {
+        padding: 16px;
+    }
 
-  .contador {
-    margin: 20px 0;            /* Espaço extra ao redor do bloco do contador */
-    /* flex-wrap: wrap; justify-content: center; (continuam valendo do estilo base) */
-  }
+    h1 {
+        font-size: 2.2rem;
+    }
 
-  .contador .bloco {
-    margin: 10px 15px;         /* Aumenta espaçamento entre blocos no desktop */
-  }
+    p, .label {
+        font-size: 1.2rem;
+    }
 
-  .contador .valor {
-    font-size: 3em;            /* Valores bem maiores no desktop (~48px) */
-    /* font-weight: bold; (herdado do base) */
-  }
+    .valor {
+        font-size: 3rem;
+    }
 
-  .contador .label {
-    font-size: 1em;            /* Labels um pouco maiores (~16px) para acompanhar */
-    /* color: #555; (herdado do base) */
-  }
+    .mensagem {
+        font-size: 1.3rem;
+    }
 
-  .moldura {
-    margin: 20px auto;         /* Mais margem vertical; auto horizontal (centraliza se largura ajustada) */
-    /* max-width: 720px; */    /* (Opcional: limitar largura da moldura se quiser que não passe de 720px) */
-  }
+    .moldura {
+        max-width: 100%;
+        padding: 8px;
+    }
 
-  .carrossel img {
-    max-width: 700px;          /* Limite de largura da imagem no desktop (expande até 700px no máx) */
-    /* width: auto;  (não necessário pois width:100% no base já faz imagem encolher em telas menores) */
-    /* height: auto; (já definido no base) */
-  }
+    .carrossel img {
+        border-radius: 18px;
+    }
+
+    .bloco {
+        min-width: 100px;
+        padding: 14px;
+    }
 }
