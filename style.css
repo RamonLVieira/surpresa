@@ -1,12 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
-    background-color: #f2f2f2;
-    padding: 30px;
+    background: linear-gradient(to right, #dbeafe, #fef3c7);
+    margin: 0;
+    padding: 20px;
+    color: #1e293b;
 }
 
 h1 {
-    color: #333;
+    font-size: 2.5rem;
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 10px;
+    color: #334155;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #475569;
 }
 
 .carrossel {
@@ -14,8 +30,55 @@ h1 {
 }
 
 .carrossel img {
-    width: 500px;
+    max-width: 90%;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: opacity 1s ease-in-out;
+}
+
+.mensagem {
+    margin-top: 40px;
+    font-size: 1.4rem;
+    color: #1e40af;
+    font-weight: bold;
+}
+
+audio {
+    margin-top: 30px;
+}
+
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1e40af;
+}
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .mensagem {
+        font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
 }
