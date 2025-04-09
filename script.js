@@ -1,4 +1,3 @@
-// === CONTADOR DE TEMPO POR EXTENSO ===
 const dataInicial = new Date("2021-11-02T23:27:00");
 
 function atualizarContador() {
@@ -33,14 +32,13 @@ function atualizarContador() {
         anos--;
     }
 
-    const texto = `${anos} ${anos === 1 ? 'ano' : 'anos'}, ` +
-                  `${meses} ${meses === 1 ? 'mês' : 'meses'}, ` +
-                  `${dias} ${dias === 1 ? 'dia' : 'dias'}, ` +
-                  `${horas} ${horas === 1 ? 'hora' : 'horas'}, ` +
-                  `${minutos} ${minutos === 1 ? 'minuto' : 'minutos'} e ` +
-                  `${segundos} ${segundos === 1 ? 'segundo' : 'segundos'}`;
-
-    document.getElementById("contador").textContent = texto;
+    // Formata com dois dígitos
+    document.getElementById("anos").textContent = String(anos).padStart(2, '0');
+    document.getElementById("meses").textContent = String(meses).padStart(2, '0');
+    document.getElementById("dias").textContent = String(dias).padStart(2, '0');
+    document.getElementById("horas").textContent = String(horas).padStart(2, '0');
+    document.getElementById("minutos").textContent = String(minutos).padStart(2, '0');
+    document.getElementById("segundos").textContent = String(segundos).padStart(2, '0');
 }
 
 setInterval(atualizarContador, 1000);
