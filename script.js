@@ -107,17 +107,21 @@ function iniciarCarrossel() {
   const imgElement = document.getElementById("imagem-carrossel");
   if (!imgElement) return;
 
+  // Efeito de transição suave
   imgElement.style.transition = "opacity 1.2s ease-in-out";
 
   setInterval(() => {
     indiceAtual = (indiceAtual + 1) % imagens.length;
 
-    // Transição suave de opacidade
+    // Inicia o fade-out
     imgElement.style.opacity = 0;
+
+    // Troca de imagem após fade-out parcial
     setTimeout(() => {
       imgElement.src = imagens[indiceAtual];
-      imgElement.style.opacity = 1;
-    }, 400); // Meio segundo de fade antes de mostrar nova imagem
-  }, 3000); // Troca a cada 3 segundos
+      imgElement.style.opacity = 1; // fade-in
+    }, 400);
+  }, 3000); // troca a cada 3 segundos
 }
+
 
