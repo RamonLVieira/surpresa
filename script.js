@@ -1,14 +1,14 @@
-const dataInicial = new Date("2021-11-02T23:27:00");
-
+// Contador automático desde 02/11/2021 às 23:27
 function atualizarContador() {
+    const inicio = new Date("2021-11-02T23:27:00");
     const agora = new Date();
 
-    let anos = agora.getFullYear() - dataInicial.getFullYear();
-    let meses = agora.getMonth() - dataInicial.getMonth();
-    let dias = agora.getDate() - dataInicial.getDate();
-    let horas = agora.getHours() - dataInicial.getHours();
-    let minutos = agora.getMinutes() - dataInicial.getMinutes();
-    let segundos = agora.getSeconds() - dataInicial.getSeconds();
+    let anos = agora.getFullYear() - inicio.getFullYear();
+    let meses = agora.getMonth() - inicio.getMonth();
+    let dias = agora.getDate() - inicio.getDate();
+    let horas = agora.getHours() - inicio.getHours();
+    let minutos = agora.getMinutes() - inicio.getMinutes();
+    let segundos = agora.getSeconds() - inicio.getSeconds();
 
     if (segundos < 0) {
         segundos += 60;
@@ -23,8 +23,8 @@ function atualizarContador() {
         dias--;
     }
     if (dias < 0) {
-        const mesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
-        dias += mesAnterior;
+        const mesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0);
+        dias += mesAnterior.getDate();
         meses--;
     }
     if (meses < 0) {
@@ -32,7 +32,6 @@ function atualizarContador() {
         anos--;
     }
 
-    // Formata com dois dígitos
     document.getElementById("anos").textContent = String(anos).padStart(2, '0');
     document.getElementById("meses").textContent = String(meses).padStart(2, '0');
     document.getElementById("dias").textContent = String(dias).padStart(2, '0');
@@ -44,15 +43,36 @@ function atualizarContador() {
 setInterval(atualizarContador, 1000);
 atualizarContador();
 
-// === CARROSSEL DE IMAGENS COM TRANSIÇÃO SUAVE ===
-let indice = 1;
-const imagem = document.getElementById("imagem-carrossel");
+// Carrossel de imagens
+const imagens = [
+    "imagens/imagem1.jpg",
+    "imagens/imagem2.jpg",
+    "imagens/imagem3.jpg",
+    "imagens/imagem4.jpg",
+    "imagens/imagem5.jpg",
+    "imagens/imagem6.jpg",
+    "imagens/imagem7.jpg",
+    "imagens/imagem8.jpg",
+    "imagens/imagem9.jpg",
+    "imagens/imagem10.jpg",
+    "imagens/imagem11.jpg",
+    "imagens/imagem12.jpg",
+    "imagens/imagem13.jpg",
+    "imagens/imagem14.jpg",
+    "imagens/imagem15.jpg"
+];
 
-setInterval(() => {
-    imagem.style.opacity = 0;
+let indiceAtual = 0;
+const imgElement = document.getElementById("imagem-carrossel");
+
+function trocarImagem() {
+    indiceAtual = (indiceAtual + 1) % imagens.length;
+    imgElement.style.opacity = 0;
+
     setTimeout(() => {
-        indice = (indice % 15) + 1;
-        imagem.src = `imagens/imagem${indice}.jpg`;
-        imagem.style.opacity = 1;
+        imgElement.src = imagens[indiceAtual];
+        imgElement.style.opacity = 1;
     }, 500);
-}, 3000);
+}
+
+setInterval(trocarImagem, 4000);
