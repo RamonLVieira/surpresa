@@ -2,11 +2,47 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>te amo, mozi</title>
+    <title>Mozi</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
-    
+
     <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        #fundo-estrelado {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .estrela {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            width: 2px;
+            height: 2px;
+            animation: moverEstrela linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes moverEstrela {
+            0% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
         #conteudo-principal,
         #tela-boas-vindas {
             display: none;
@@ -17,6 +53,8 @@
             text-align: center;
             padding: 50px 20px;
             color: white;
+            z-index: 1;
+            position: relative;
         }
 
         #tela-senha h2,
@@ -72,6 +110,15 @@
             }
         }
 
+        .digitando {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #dbeafe;
+            margin-top: 10px;
+            min-height: 2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
         @media screen and (max-width: 600px) {
             #tela-senha h2,
             #tela-boas-vindas h2 {
@@ -87,10 +134,16 @@
             button {
                 font-size: 1rem;
             }
+
+            .digitando {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <div id="fundo-estrelado"></div>
+
     <!-- TELA DE PERGUNTA -->
     <div id="tela-senha">
         <h2>Antes de entrar...</h2>
@@ -103,8 +156,8 @@
 
     <!-- TELA DE BOAS-VINDAS -->
     <div id="tela-boas-vindas">
-        <h2 class="fade-in">Bem-vinda, mozi! 💜</h2>
-        <p class="fade-in" style="animation-delay: 0.5s;">A cada segundo que passa eu te amo mais...</p>
+        <h2 class="fade-in">Bem-vindo, mozi! 💜</h2>
+        <p class="digitando" id="mensagem-digitando"></p>
     </div>
 
     <!-- CONTEÚDO PRINCIPAL -->
@@ -143,16 +196,38 @@
                 document.getElementById('tela-senha').style.display = 'none';
                 document.getElementById('tela-boas-vindas').style.display = 'block';
 
-                // Aguarda 5 segundos, depois mostra o conteúdo principal com animação
+                digitarMensagem("Prepare-se para lembrar momentos incríveis com a gente...");
+
                 setTimeout(() => {
                     document.getElementById('tela-boas-vindas').style.display = 'none';
                     const conteudo = document.getElementById('conteudo-principal');
                     conteudo.style.display = 'block';
                     conteudo.classList.add('fade-in');
-                }, 5000);
+                }, 6500);
             } else {
                 document.getElementById('mensagem-erro').textContent = "Não é essa kkkkk";
             }
+        }
+
+        function digitarMensagem(texto) {
+            const elemento = document.getElementById("mensagem-digitando");
+            elemento.textContent = "";
+            let i = 0;
+            const intervalo = setInterval(() => {
+                elemento.textContent += texto.charAt(i);
+                i++;
+                if (i >= texto.length) clearInterval(intervalo);
+            }, 50);
+        }
+
+        // Criar estrelas no fundo
+        for (let i = 0; i < 100; i++) {
+            const estrela = document.createElement("div");
+            estrela.classList.add("estrela");
+            estrela.style.left = `${Math.random() * 100}vw`;
+            estrela.style.top = `${Math.random() * -100}vh`;
+            estrela.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            document.getElementById("fundo-estrelado").appendChild(estrela);
         }
     </script>
 </body>
