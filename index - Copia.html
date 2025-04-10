@@ -222,3 +222,38 @@
 
   <!-- SCRIPTS -->
   <script src="script.js"></script>
+  <script>
+    function verificarResposta() {
+      const resposta = document.getElementById("resposta").value.trim().toLowerCase();
+      const correta = "02/11/2021";
+
+      if (resposta === correta || resposta === "02-11-2021") {
+        document.getElementById("tela-senha").style.display = "none";
+        document.getElementById("tela-boas-vindas").style.display = "block";
+
+        digitarMensagem("A cada segundo que passa eu te amo ainda mais...");
+
+        setTimeout(() => {
+          document.getElementById("tela-boas-vindas").style.display = "none";
+          const conteudo = document.getElementById("conteudo-principal");
+          conteudo.style.display = "block";
+          conteudo.classList.add("fade-in");
+        }, 6500);
+      } else {
+        document.getElementById("mensagem-erro").textContent = "Não é essa kkkkk";
+      }
+    }
+
+    function digitarMensagem(texto) {
+      const elemento = document.getElementById("mensagem-digitando");
+      elemento.textContent = "";
+      let i = 0;
+      const intervalo = setInterval(() => {
+        elemento.textContent += texto.charAt(i);
+        i++;
+        if (i >= texto.length) clearInterval(intervalo);
+      }, 50);
+    }
+  </script>
+</body>
+</html>
