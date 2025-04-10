@@ -21,12 +21,11 @@
         }
 
         #tela-senha,
-        #tela-boas-vindas,
-        #conteudo-principal {
+        #tela-boas-vindas {
             text-align: center;
             padding: 100px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
+            z-index: 1;
+            position: relative;
         }
 
         #tela-senha h2,
@@ -98,43 +97,13 @@
             color: white;
         }
 
-        .contador-blocos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .bloco {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 12px;
-            min-width: 100px;
-        }
-
-        .valor {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-
-        .label {
-            margin-top: 5px;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .mensagem,
-        .carrossel,
-        .contador-blocos + p {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         @media screen and (max-width: 600px) {
+            body {
+                font-size: 18px;
+            }
+
             #tela-senha,
-            #tela-boas-vindas,
-            #conteudo-principal {
+            #tela-boas-vindas {
                 padding: 60px 10px;
             }
 
@@ -179,11 +148,6 @@
 
             #conteudo-principal p {
                 font-size: 1.3rem;
-            }
-
-            .contador-blocos {
-                flex-direction: column;
-                align-items: center;
             }
         }
     </style>
@@ -233,7 +197,7 @@
             <p>Todos os momentos com você são eternos na minha memória. Te amo para sempre!</p>
         </div>
 
-        <div class="mensagem" style="margin-top: 40px; font-size: 1.4rem; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
+        <div class="mensagem" style="margin-top: 30px;">
             <p>Quero que você acesse esta página sempre que você estiver com qualquer medo, pois vamos ficar juntos para sempre, então tudo vai dar certo!</p>
         </div>
     </div>
