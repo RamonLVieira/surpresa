@@ -152,7 +152,7 @@
   <div id="tela-senha">
     <h2>Antes de entrar...</h2>
     <p>Responda corretamente: <strong>Qual é a nossa data especial?</strong></p>
-    <input type="text" id="resposta" placeholder="DD/MM/AAAA" />
+    <input type="tel" inputmode="numeric" pattern="[0-9]*" id="resposta" placeholder="DD/MM/AAAA" />
     <br />
     <button onclick="verificarResposta()">Entrar</button>
     <div id="mensagem-erro" class="erro"></div>

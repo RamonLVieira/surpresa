@@ -121,5 +121,19 @@ function iniciarCarrossel() {
   }, 3000); // Troca a cada 3 segundos
 }
 
+// Formatação automática da data (DD/MM/AAAA)
+const campoResposta = document.getElementById("resposta");
+
+campoResposta.addEventListener("input", function () {
+  let valor = campoResposta.value.replace(/\D/g, ""); // remove não números
+
+  if (valor.length > 2 && valor.length <= 4) {
+    valor = valor.slice(0, 2) + "/" + valor.slice(2);
+  } else if (valor.length > 4) {
+    valor = valor.slice(0, 2) + "/" + valor.slice(2, 4) + "/" + valor.slice(4, 8);
+  }
+
+  campoResposta.value = valor;
+});
 
 
