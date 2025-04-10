@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap');
 
 body {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    background: linear-gradient(to right, #4b0082, #1e3a8a);
     margin: 0;
+    overflow-x: hidden;
+    background: linear-gradient(to right, #4b0082, #1e3a8a);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
     padding: 20px;
-    color: #f8fafc;
 }
 
 h1 {
@@ -19,7 +20,6 @@ p {
     color: #cbd5e1;
 }
 
-/* CONTADOR */
 .contador-blocos {
     display: flex;
     flex-wrap: wrap;
@@ -34,8 +34,8 @@ p {
     align-items: center;
     background-color: #0f172a;
     border-radius: 12px;
-    padding: 10px 16px;
-    min-width: 80px;
+    padding: 14px 20px;
+    min-width: 90px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
@@ -52,7 +52,6 @@ p {
     margin-top: 5px;
 }
 
-/* CARROSSEL */
 .carrossel {
     margin-top: 30px;
     display: flex;
@@ -84,39 +83,29 @@ p {
     font-weight: bold;
 }
 
-/* RESPONSIVO — MOBILE COM TUDO MAIOR */
 @media screen and (max-width: 600px) {
-    body {
-        padding: 16px;
-    }
-
     h1 {
-        font-size: 2.2rem;
-    }
-
-    p, .label {
-        font-size: 1.2rem;
+        font-size: 2rem;
     }
 
     .valor {
         font-size: 3rem;
     }
 
-    .mensagem {
-        font-size: 1.3rem;
-    }
-
-    .moldura {
-        max-width: 100%;
-        padding: 8px;
-    }
-
-    .carrossel img {
-        border-radius: 18px;
+    .label, p {
+        font-size: 1.1rem;
     }
 
     .bloco {
         min-width: 100px;
-        padding: 14px;
+        padding: 16px;
+    }
+
+    .mensagem {
+        font-size: 1.2rem;
+    }
+
+    .moldura {
+        max-width: 100%;
     }
 }
