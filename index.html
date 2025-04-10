@@ -2,13 +2,12 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Mozi</title>
+  <title>Te amo, mozi</title>
   <link rel="stylesheet" href="style.css" />
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap"
     rel="stylesheet"
   />
-
   <style>
     body {
       margin: 0;
@@ -27,8 +26,6 @@
     #tela-boas-vindas {
       text-align: center;
       padding: 80px 20px;
-      z-index: 1;
-      position: relative;
     }
 
     #tela-senha h2,
@@ -96,6 +93,24 @@
       font-family: "Poppins", sans-serif;
     }
 
+    .mensagem-apos-contador {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #f1f5f9;
+      padding: 0 20px;
+    }
+
+    .mensagens-finais {
+      margin-top: 40px;
+      font-size: 1.3rem;
+      color: #dbeafe;
+      padding: 0 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
     @media screen and (max-width: 600px) {
       #tela-senha h2,
       #tela-boas-vindas h2 {
@@ -114,6 +129,10 @@
 
       .digitando {
         font-size: 1.2rem;
+      }
+
+      .mensagens-finais {
+        font-size: 1.1rem;
       }
     }
   </style>
@@ -137,34 +156,39 @@
 
   <!-- CONTEÚDO PRINCIPAL -->
   <div id="conteudo-principal">
-    <h1>Contador de Tempo</h1>
+    <h1>Te amo para sempre</h1>
     <p>Desde 02/11/2021 às 23:27 se passaram:</p>
 
     <div class="contador-blocos">
       <div class="bloco">
-        <div class="valor" id="anos">00</div>
+        <div class="valor" id="anos" style="color: #1e3a8a;">00</div>
         <div class="label">ANOS</div>
       </div>
       <div class="bloco">
-        <div class="valor" id="meses">00</div>
+        <div class="valor" id="meses" style="color: #1e3a8a;">00</div>
         <div class="label">MESES</div>
       </div>
       <div class="bloco">
-        <div class="valor" id="dias">00</div>
+        <div class="valor" id="dias" style="color: #1e3a8a;">00</div>
         <div class="label">DIAS</div>
       </div>
       <div class="bloco">
-        <div class="valor" id="horas">00</div>
+        <div class="valor" id="horas" style="color: #1e3a8a;">00</div>
         <div class="label">HORAS</div>
       </div>
       <div class="bloco">
-        <div class="valor" id="minutos">00</div>
+        <div class="valor" id="minutos" style="color: #1e3a8a;">00</div>
         <div class="label">MINUTOS</div>
       </div>
       <div class="bloco">
-        <div class="valor" id="segundos">00</div>
+        <div class="valor" id="segundos" style="color: #1e3a8a;">00</div>
         <div class="label">SEGUNDOS</div>
       </div>
+    </div>
+
+    <div class="mensagem-apos-contador">
+      <p>A cada instante que passa o meu amor por você só aumenta.  
+      <br>Sorte a minha é saber que este contador vai até o infinito!</p>
     </div>
 
     <div class="carrossel">
@@ -177,8 +201,12 @@
       </div>
     </div>
 
-    <div class="mensagem">
-      <p>Cada momento com você eu vou guardar para sempre 💙</p>
+    <div class="mensagens-finais">
+      <p>Quero que você acesse esta página sempre que estiver insegura com alguma coisa.  
+      Nós vamos ficar juntos para sempre, e é por isso que faremos tudo dar certo!</p>
+
+      <p>Obrigado por dividir a eternidade comigo.  
+      Te amo, mozi 💜</p>
     </div>
   </div>
 
