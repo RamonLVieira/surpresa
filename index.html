@@ -2,50 +2,91 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>te amo, mozi</title>
+    <title>Mozi</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    
     <style>
-        #conteudo-principal, #tela-boas-vindas {
+        #conteudo-principal,
+        #tela-boas-vindas {
             display: none;
         }
 
-        #tela-senha, #tela-boas-vindas {
+        #tela-senha,
+        #tela-boas-vindas {
             text-align: center;
-            padding: 50px;
+            padding: 50px 20px;
             color: white;
         }
 
+        #tela-senha h2,
+        #tela-boas-vindas h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #tela-senha p,
+        #tela-boas-vindas p {
+            font-size: 1.25rem;
+        }
+
         input {
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
             border: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            width: 240px;
+            max-width: 90%;
+            margin-top: 15px;
         }
 
         button {
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 8px;
             border: none;
             background-color: #7c3aed;
             color: white;
-            font-size: 1rem;
-            margin-left: 10px;
+            font-size: 1.1rem;
+            margin-top: 15px;
             cursor: pointer;
         }
 
         .erro {
             color: #f87171;
             margin-top: 10px;
+            font-size: 1rem;
         }
 
         .fade-in {
-            animation: fadeIn 2.0s ease forwards;
+            animation: fadeIn 1.2s ease forwards;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            #tela-senha h2,
+            #tela-boas-vindas h2 {
+                font-size: 1.7rem;
+            }
+
+            #tela-senha p,
+            #tela-boas-vindas p {
+                font-size: 1.1rem;
+            }
+
+            input,
+            button {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -55,14 +96,15 @@
         <h2>Antes de entrar...</h2>
         <p>Responda corretamente: <strong>Qual é a nossa data especial?</strong></p>
         <input type="text" id="resposta" placeholder="DD/MM/AAAA">
+        <br>
         <button onclick="verificarResposta()">Entrar</button>
         <div id="mensagem-erro" class="erro"></div>
     </div>
 
     <!-- TELA DE BOAS-VINDAS -->
     <div id="tela-boas-vindas">
-        <h2 class="fade-in">Bem-vinda, mozi! 💜</h2>
-        <p class="fade-in" style="animation-delay: 5.0s;">Saiba que a cada segundo eu te amo mais...</p>
+        <h2 class="fade-in">Bem-vindo, mozi! 💜</h2>
+        <p class="fade-in" style="animation-delay: 0.5s;">Prepare-se para lembrar momentos incríveis com a gente...</p>
     </div>
 
     <!-- CONTEÚDO PRINCIPAL -->
@@ -90,6 +132,7 @@
         </div>
     </div>
 
+    <!-- SCRIPTS -->
     <script src="script.js"></script>
     <script>
         function verificarResposta() {
@@ -100,7 +143,7 @@
                 document.getElementById('tela-senha').style.display = 'none';
                 document.getElementById('tela-boas-vindas').style.display = 'block';
 
-                // Após 2.5 segundos, mostrar o conteúdo principal com fade-in
+                // Aguarda 5 segundos, depois mostra o conteúdo principal com animação
                 setTimeout(() => {
                     document.getElementById('tela-boas-vindas').style.display = 'none';
                     const conteudo = document.getElementById('conteudo-principal');
