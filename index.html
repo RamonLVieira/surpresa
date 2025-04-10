@@ -2,12 +2,150 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Te amo, mozi</title>
   <link rel="stylesheet" href="style.css" />
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap"
     rel="stylesheet"
   />
+</head>
+<head>
+  <meta charset="UTF-8" />
+  <title>Te amo, mozi</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: linear-gradient(to right, #4b0082, #1e3a8a);
+      font-family: "Poppins", sans-serif;
+      color: white;
+    }
+
+    #conteudo-principal,
+    #tela-boas-vindas {
+      display: none;
+    }
+
+    #tela-senha,
+    #tela-boas-vindas {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    #tela-senha h2,
+    #tela-boas-vindas h2 {
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+    }
+
+    #tela-senha p,
+    #tela-boas-vindas p {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    input {
+      padding: 16px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1.2rem;
+      width: 280px;
+      max-width: 90%;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 14px 28px;
+      border-radius: 10px;
+      border: none;
+      background-color: #7c3aed;
+      color: white;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .erro {
+      color: #f87171;
+      margin-top: 15px;
+      font-size: 1.1rem;
+    }
+
+    .fade-in {
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .digitando {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #dbeafe;
+      margin-top: 20px;
+      min-height: 2rem;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .mensagem-apos-contador {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #f1f5f9;
+      padding: 0 20px;
+    }
+
+    .mensagens-finais {
+      margin-top: 40px;
+      font-size: 1.3rem;
+      color: #dbeafe;
+      padding: 0 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    @media screen and (max-width: 600px) {
+      #tela-senha h2,
+      #tela-boas-vindas h2 {
+        font-size: 2rem;
+      }
+
+      #tela-senha p,
+      #tela-boas-vindas p {
+        font-size: 1.2rem;
+      }
+
+      input,
+      button {
+        font-size: 1.1rem;
+      }
+
+      .digitando {
+        font-size: 1.2rem;
+      }
+
+      .mensagens-finais {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- TELA DE PERGUNTA -->
@@ -32,12 +170,30 @@
     <p>Desde 02/11/2021 às 23:27 se passaram:</p>
 
     <div class="contador-blocos">
-      <div class="bloco"><div class="valor" id="anos" style="color: #1e3a8a;">00</div><div class="label">ANOS</div></div>
-      <div class="bloco"><div class="valor" id="meses" style="color: #1e3a8a;">00</div><div class="label">MESES</div></div>
-      <div class="bloco"><div class="valor" id="dias" style="color: #1e3a8a;">00</div><div class="label">DIAS</div></div>
-      <div class="bloco"><div class="valor" id="horas" style="color: #1e3a8a;">00</div><div class="label">HORAS</div></div>
-      <div class="bloco"><div class="valor" id="minutos" style="color: #1e3a8a;">00</div><div class="label">MINUTOS</div></div>
-      <div class="bloco"><div class="valor" id="segundos" style="color: #1e3a8a;">00</div><div class="label">SEGUNDOS</div></div>
+      <div class="bloco">
+        <div class="valor" id="anos" style="color: #1e3a8a;">00</div>
+        <div class="label">ANOS</div>
+      </div>
+      <div class="bloco">
+        <div class="valor" id="meses" style="color: #1e3a8a;">00</div>
+        <div class="label">MESES</div>
+      </div>
+      <div class="bloco">
+        <div class="valor" id="dias" style="color: #1e3a8a;">00</div>
+        <div class="label">DIAS</div>
+      </div>
+      <div class="bloco">
+        <div class="valor" id="horas" style="color: #1e3a8a;">00</div>
+        <div class="label">HORAS</div>
+      </div>
+      <div class="bloco">
+        <div class="valor" id="minutos" style="color: #1e3a8a;">00</div>
+        <div class="label">MINUTOS</div>
+      </div>
+      <div class="bloco">
+        <div class="valor" id="segundos" style="color: #1e3a8a;">00</div>
+        <div class="label">SEGUNDOS</div>
+      </div>
     </div>
 
     <div class="mensagem-apos-contador">
@@ -47,7 +203,11 @@
 
     <div class="carrossel">
       <div class="moldura">
-        <img id="imagem-carrossel" src="imagens/imagem1.jpg" alt="Carrossel de fotos" />
+        <img
+          id="imagem-carrossel"
+          src="imagens/imagem1.jpg"
+          alt="Carrossel de fotos"
+        />
       </div>
     </div>
 
