@@ -4,49 +4,88 @@
     <meta charset="UTF-8">
     <title>Contador + Carrossel</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        #conteudo-principal {
+            display: none;
+        }
+
+        #tela-senha {
+            text-align: center;
+            padding: 50px;
+            color: white;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            background-color: #7c3aed;
+            color: white;
+            font-size: 1rem;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .erro {
+            color: #f87171;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Contador de Tempo</h1>
-    <p>Desde 02/11/2021 às 23:27 se passaram:</p>
-
-    <div class="contador-blocos">
-        <div class="bloco">
-            <div class="valor" id="anos">00</div>
-            <div class="label">ANOS</div>
-        </div>
-        <div class="bloco">
-            <div class="valor" id="meses">00</div>
-            <div class="label">MESES</div>
-        </div>
-        <div class="bloco">
-            <div class="valor" id="dias">00</div>
-            <div class="label">DIAS</div>
-        </div>
-        <div class="bloco">
-            <div class="valor" id="horas">00</div>
-            <div class="label">HORAS</div>
-        </div>
-        <div class="bloco">
-            <div class="valor" id="minutos">00</div>
-            <div class="label">MINUTOS</div>
-        </div>
-        <div class="bloco">
-            <div class="valor" id="segundos">00</div>
-            <div class="label">SEGUNDOS</div>
-        </div>
+    <div id="tela-senha">
+        <h2>Antes de entrar...</h2>
+        <p>Responda corretamente: <strong>Qual é a nossa data especial?</strong></p>
+        <input type="text" id="resposta" placeholder="DD/MM/AAAA">
+        <button onclick="verificarResposta()">Entrar</button>
+        <div id="mensagem-erro" class="erro"></div>
     </div>
 
-    <div class="carrossel">
-        <div class="moldura">
-            <img id="imagem-carrossel" src="imagens/imagem1.jpg" alt="Carrossel de fotos">
-        </div>
-    </div>
+    <div id="conteudo-principal">
+        <h1>Contador de Tempo</h1>
+        <p>Desde 02/11/2021 às 23:27 se passaram:</p>
 
-    <div class="mensagem">
-        <p>Essa é uma lembrança especial guardada no tempo 💙</p>
+        <div class="contador-blocos">
+            <div class="bloco"><div class="valor" id="anos">00</div><div class="label">ANOS</div></div>
+            <div class="bloco"><div class="valor" id="meses">00</div><div class="label">MESES</div></div>
+            <div class="bloco"><div class="valor" id="dias">00</div><div class="label">DIAS</div></div>
+            <div class="bloco"><div class="valor" id="horas">00</div><div class="label">HORAS</div></div>
+            <div class="bloco"><div class="valor" id="minutos">00</div><div class="label">MINUTOS</div></div>
+            <div class="bloco"><div class="valor" id="segundos">00</div><div class="label">SEGUNDOS</div></div>
+        </div>
+
+        <div class="carrossel">
+            <div class="moldura">
+                <img id="imagem-carrossel" src="imagens/imagem1.jpg" alt="Carrossel de fotos">
+            </div>
+        </div>
+
+        <div class="mensagem">
+            <p>Essa é uma lembrança especial guardada no tempo 💙</p>
+        </div>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        function verificarResposta() {
+            const resposta = document.getElementById('resposta').value.trim().toLowerCase();
+            const correta = "02/11/2021";
+
+            if (resposta === correta || resposta === "02-11-2021") {
+                document.getElementById('tela-senha').style.display = 'none';
+                document.getElementById('conteudo-principal').style.display = 'block';
+            } else {
+                document.getElementById('mensagem-erro').textContent = "Resposta incorreta. Tente novamente.";
+            }
+        }
+    </script>
 </body>
 </html>
