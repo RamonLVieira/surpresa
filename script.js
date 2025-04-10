@@ -107,12 +107,17 @@ function iniciarCarrossel() {
   const imgElement = document.getElementById("imagem-carrossel");
   if (!imgElement) return;
 
+  imgElement.style.transition = "opacity 1.2s ease-in-out";
+
   setInterval(() => {
     indiceAtual = (indiceAtual + 1) % imagens.length;
-    imgElement.style.opacity = 0.4;
+
+    // Transição suave de opacidade
+    imgElement.style.opacity = 0;
     setTimeout(() => {
       imgElement.src = imagens[indiceAtual];
       imgElement.style.opacity = 1;
-    }, 300);
-  }, 4000);
+    }, 400); // Meio segundo de fade antes de mostrar nova imagem
+  }, 3000); // Troca a cada 3 segundos
 }
+
