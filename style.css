@@ -1,111 +1,161 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap');
 
 body {
-    margin: 0;
-    overflow-x: hidden;
-    background: linear-gradient(to right, #4b0082, #1e3a8a);
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    text-align: center;
-    padding: 20px;
+  margin: 0;
+  overflow-x: hidden;
+  background: linear-gradient(to right, #4b0082, #1e3a8a);
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin-top: 20px;
+  font-size: 2.5rem;
+  margin-top: 20px;
 }
 
 p {
-    font-size: 1.2rem;
-    color: #cbd5e1;
+  font-size: 1.2rem;
+  color: #cbd5e1;
 }
 
 .contador-blocos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
 }
 
 .bloco {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #0f172a;
-    border-radius: 12px;
-    padding: 14px 20px;
-    min-width: 90px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0f172a;
+  border-radius: 12px;
+  padding: 14px 20px;
+  min-width: 90px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .valor {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem;
-    color: #38bdf8;
-    letter-spacing: 2px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  color: #1e3a8a; /* mesma cor do fundo */
+  letter-spacing: 2px;
 }
 
 .label {
-    font-size: 0.9rem;
-    color: #f1f5f9;
-    margin-top: 5px;
+  font-size: 0.9rem;
+  color: #f1f5f9;
+  margin-top: 5px;
 }
 
 .carrossel {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .moldura {
-    display: inline-block;
-    padding: 6px;
-    border-radius: 24px;
-    background: linear-gradient(135deg, #7c3aed, #3b82f6);
-    box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
-    width: 100%;
-    max-width: 500px;
+  display: inline-block;
+  padding: 6px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+  width: 100%;
+  max-width: 500px;
 }
 
 .carrossel img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    display: block;
-    transition: opacity 1s ease-in-out;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+  transition: opacity 1s ease-in-out;
 }
 
-.mensagem {
-    margin-top: 40px;
-    font-size: 1.4rem;
-    color: #dbeafe;
-    font-weight: bold;
+.mensagem-apos-contador {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  color: #f1f5f9;
+  padding: 0 20px;
+}
+
+.mensagens-finais {
+  margin-top: 40px;
+  font-size: 1.3rem;
+  color: #dbeafe;
+  padding: 0 20px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.fade-in {
+  animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.digitando {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #dbeafe;
+  margin-top: 20px;
+  min-height: 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.erro {
+  color: #f87171;
+  margin-top: 15px;
+  font-size: 1.1rem;
 }
 
 @media screen and (max-width: 600px) {
-    h1 {
-        font-size: 2rem;
-    }
+  h1 {
+    font-size: 2rem;
+  }
 
-    .valor {
-        font-size: 3rem;
-    }
+  .valor {
+    font-size: 3rem;
+  }
 
-    .label, p {
-        font-size: 1.1rem;
-    }
+  .label, p {
+    font-size: 1.1rem;
+  }
 
-    .bloco {
-        min-width: 100px;
-        padding: 16px;
-    }
+  .bloco {
+    min-width: 100px;
+    padding: 16px;
+  }
 
-    .mensagem {
-        font-size: 1.2rem;
-    }
+  .mensagem-apos-contador {
+    font-size: 1.1rem;
+  }
 
-    .moldura {
-        max-width: 100%;
-    }
+  .mensagens-finais {
+    font-size: 1.1rem;
+  }
+
+  input,
+  button {
+    font-size: 16px !important; /* evita zoom no iOS */
+  }
+
+  .digitando {
+    font-size: 1.2rem;
+  }
 }
