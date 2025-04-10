@@ -13,6 +13,12 @@
             background: linear-gradient(to right, #4b0082, #1e3a8a);
             font-family: 'Poppins', sans-serif;
             color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
         }
 
         #conteudo-principal,
@@ -21,11 +27,12 @@
         }
 
         #tela-senha,
-        #tela-boas-vindas {
+        #tela-boas-vindas,
+        #conteudo-principal {
             text-align: center;
             padding: 100px 20px;
-            z-index: 1;
-            position: relative;
+            max-width: 1000px;
+            width: 100%;
         }
 
         #tela-senha h2,
@@ -97,13 +104,22 @@
             color: white;
         }
 
+        .mensagem,
+        .carrossel,
+        .contador-blocos,
+        .contador-blocos + p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         @media screen and (max-width: 600px) {
             body {
                 font-size: 18px;
             }
 
             #tela-senha,
-            #tela-boas-vindas {
+            #tela-boas-vindas,
+            #conteudo-principal {
                 padding: 60px 10px;
             }
 
