@@ -1,241 +1,221 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Mozi</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Mozi</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap"
+    rel="stylesheet"
+  />
 
-    <style>
-        body {
-            margin: 0;
-            overflow-x: hidden;
-            background: linear-gradient(to right, #4b0082, #1e3a8a);
-            font-family: 'Poppins', sans-serif;
-            color: white;
-        }
+  <style>
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: linear-gradient(to right, #4b0082, #1e3a8a);
+      font-family: "Poppins", sans-serif;
+      color: white;
+    }
 
-        #conteudo-principal,
-        #tela-boas-vindas {
-            display: none;
-        }
+    #conteudo-principal,
+    #tela-boas-vindas {
+      display: none;
+    }
 
-        #tela-senha,
-        #tela-boas-vindas {
-            text-align: center;
-            padding: 100px 20px;
-            z-index: 1;
-            position: relative;
-        }
+    #tela-senha,
+    #tela-boas-vindas {
+      text-align: center;
+      padding: 80px 20px;
+      z-index: 1;
+      position: relative;
+    }
 
-        #tela-senha h2,
-        #tela-boas-vindas h2 {
-            font-size: 3rem;
-            margin-bottom: 30px;
-        }
+    #tela-senha h2,
+    #tela-boas-vindas h2 {
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+    }
 
-        #tela-senha p,
-        #tela-boas-vindas p {
-            font-size: 1.8rem;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    #tela-senha p,
+    #tela-boas-vindas p {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-        input {
-            padding: 18px;
-            border-radius: 12px;
-            border: none;
-            font-size: 1.4rem;
-            width: 300px;
-            max-width: 90%;
-            margin-top: 25px;
-        }
+    input {
+      padding: 16px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1.2rem;
+      width: 280px;
+      max-width: 90%;
+      margin-top: 20px;
+    }
 
-        button {
-            padding: 16px 32px;
-            border-radius: 12px;
-            border: none;
-            background-color: #7c3aed;
-            color: white;
-            font-size: 1.4rem;
-            margin-top: 25px;
-            cursor: pointer;
-        }
+    button {
+      padding: 14px 28px;
+      border-radius: 10px;
+      border: none;
+      background-color: #7c3aed;
+      color: white;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      cursor: pointer;
+    }
 
-        .erro {
-            color: #f87171;
-            margin-top: 20px;
-            font-size: 1.2rem;
-        }
+    .erro {
+      color: #f87171;
+      margin-top: 15px;
+      font-size: 1.1rem;
+    }
 
-        .fade-in {
-            animation: fadeIn 1.2s ease forwards;
-        }
+    .fade-in {
+      animation: fadeIn 1.2s ease forwards;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .digitando {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: #dbeafe;
-            margin-top: 25px;
-            min-height: 2rem;
-            font-family: 'Poppins', sans-serif;
-        }
+    .digitando {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #dbeafe;
+      margin-top: 20px;
+      min-height: 2rem;
+      font-family: "Poppins", sans-serif;
+    }
 
-        .valor {
-            color: white;
-        }
+    @media screen and (max-width: 600px) {
+      #tela-senha h2,
+      #tela-boas-vindas h2 {
+        font-size: 2rem;
+      }
 
-        @media screen and (max-width: 600px) {
-            body {
-                font-size: 18px;
-            }
+      #tela-senha p,
+      #tela-boas-vindas p {
+        font-size: 1.2rem;
+      }
 
-            #tela-senha,
-            #tela-boas-vindas {
-                padding: 60px 10px;
-            }
+      input,
+      button {
+        font-size: 1.1rem;
+      }
 
-            #tela-senha h2,
-            #tela-boas-vindas h2 {
-                font-size: 2.5rem;
-            }
-
-            #tela-senha p,
-            #tela-boas-vindas p {
-                font-size: 1.8rem;
-            }
-
-            input {
-                font-size: 1.4rem;
-                padding: 16px;
-                width: 90%;
-            }
-
-            button {
-                font-size: 1.4rem;
-                padding: 16px 28px;
-            }
-
-            .erro {
-                font-size: 1.3rem;
-            }
-
-            .digitando {
-                font-size: 1.6rem;
-            }
-
-            .mensagem p,
-            .carrossel p,
-            .contador-blocos + p {
-                font-size: 1.5rem !important;
-            }
-
-            #conteudo-principal h1 {
-                font-size: 2.2rem;
-            }
-
-            #conteudo-principal p {
-                font-size: 1.3rem;
-            }
-        }
-    </style>
+      .digitando {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- TELA DE PERGUNTA -->
-    <div id="tela-senha">
-        <h2>Antes de entrar...</h2>
-        <p>Responda corretamente: <strong>Qual é a nossa data especial?</strong></p>
-        <input type="text" id="resposta" placeholder="DD/MM/AAAA">
-        <br>
-        <button onclick="verificarResposta()">Entrar</button>
-        <div id="mensagem-erro" class="erro"></div>
+  <!-- TELA DE PERGUNTA -->
+  <div id="tela-senha">
+    <h2>Antes de entrar...</h2>
+    <p>Responda corretamente: <strong>Qual é a nossa data especial?</strong></p>
+    <input type="text" id="resposta" placeholder="DD/MM/AAAA" />
+    <br />
+    <button onclick="verificarResposta()">Entrar</button>
+    <div id="mensagem-erro" class="erro"></div>
+  </div>
+
+  <!-- TELA DE BOAS-VINDAS -->
+  <div id="tela-boas-vindas">
+    <h2 class="fade-in">Bem-vinda, mozi! 💜</h2>
+    <p class="digitando" id="mensagem-digitando"></p>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div id="conteudo-principal">
+    <h1>Contador de Tempo</h1>
+    <p>Desde 02/11/2021 às 23:27 se passaram:</p>
+
+    <div class="contador-blocos">
+      <div class="bloco">
+        <div class="valor" id="anos">00</div>
+        <div class="label">ANOS</div>
+      </div>
+      <div class="bloco">
+        <div class="valor" id="meses">00</div>
+        <div class="label">MESES</div>
+      </div>
+      <div class="bloco">
+        <div class="valor" id="dias">00</div>
+        <div class="label">DIAS</div>
+      </div>
+      <div class="bloco">
+        <div class="valor" id="horas">00</div>
+        <div class="label">HORAS</div>
+      </div>
+      <div class="bloco">
+        <div class="valor" id="minutos">00</div>
+        <div class="label">MINUTOS</div>
+      </div>
+      <div class="bloco">
+        <div class="valor" id="segundos">00</div>
+        <div class="label">SEGUNDOS</div>
+      </div>
     </div>
 
-    <!-- TELA DE BOAS-VINDAS -->
-    <div id="tela-boas-vindas">
-        <h2 class="fade-in">Bem-vinda, mozi 💜</h2>
-        <p class="digitando" id="mensagem-digitando"></p>
+    <div class="carrossel">
+      <div class="moldura">
+        <img
+          id="imagem-carrossel"
+          src="imagens/imagem1.jpg"
+          alt="Carrossel de fotos"
+        />
+      </div>
     </div>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <div id="conteudo-principal">
-        <h1>Te amo para sempre 💜</h1>
-        <p>Desde 02/11/2021 às 23:27 se passaram:</p>
-
-        <div class="contador-blocos">
-            <div class="bloco"><div class="valor" id="anos">00</div><div class="label">ANOS</div></div>
-            <div class="bloco"><div class="valor" id="meses">00</div><div class="label">MESES</div></div>
-            <div class="bloco"><div class="valor" id="dias">00</div><div class="label">DIAS</div></div>
-            <div class="bloco"><div class="valor" id="horas">00</div><div class="label">HORAS</div></div>
-            <div class="bloco"><div class="valor" id="minutos">00</div><div class="label">MINUTOS</div></div>
-            <div class="bloco"><div class="valor" id="segundos">00</div><div class="label">SEGUNDOS</div></div>
-        </div>
-
-        <p style="margin-top: 30px; font-size: 1.4rem; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
-            Cada instante que passa o meu amor por você só aumenta. Sorte a minha saber que este relógio vai até o infinito!
-        </p>
-
-        <div class="carrossel">
-            <div class="moldura">
-                <img id="imagem-carrossel" src="imagens/imagem1.jpg" alt="Carrossel de fotos">
-            </div>
-        </div>
-
-        <div class="mensagem">
-            <p>Todos os momentos com você são eternos na minha memória. Te amo para sempre!</p>
-        </div>
-
-        <div class="mensagem" style="margin-top: 30px;">
-            <p>Quero que você acesse esta página sempre que você estiver com qualquer medo, pois vamos ficar juntos para sempre, então tudo vai dar certo!</p>
-        </div>
+    <div class="mensagem">
+      <p>Cada momento com você eu vou guardar para sempre 💙</p>
     </div>
+  </div>
 
-    <!-- SCRIPTS -->
-    <script src="script.js"></script>
-    <script>
-        function verificarResposta() {
-            const resposta = document.getElementById('resposta').value.trim().toLowerCase();
-            const correta = "02/11/2021";
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
+  <script>
+    function verificarResposta() {
+      const resposta = document.getElementById("resposta").value.trim().toLowerCase();
+      const correta = "02/11/2021";
 
-            if (resposta === correta || resposta === "02-11-2021") {
-                document.getElementById('tela-senha').style.display = 'none';
-                document.getElementById('tela-boas-vindas').style.display = 'block';
+      if (resposta === correta || resposta === "02-11-2021") {
+        document.getElementById("tela-senha").style.display = "none";
+        document.getElementById("tela-boas-vindas").style.display = "block";
 
-                digitarMensagem("A cada segundo que passa eu te amo ainda mais...");
+        digitarMensagem("A cada segundo que passa eu te amo ainda mais...");
 
-                setTimeout(() => {
-                    document.getElementById('tela-boas-vindas').style.display = 'none';
-                    const conteudo = document.getElementById('conteudo-principal');
-                    conteudo.style.display = 'block';
-                    conteudo.classList.add('fade-in');
-                }, 6500);
-            } else {
-                document.getElementById('mensagem-erro').textContent = "Não é essa kkkkk";
-            }
-        }
+        setTimeout(() => {
+          document.getElementById("tela-boas-vindas").style.display = "none";
+          const conteudo = document.getElementById("conteudo-principal");
+          conteudo.style.display = "block";
+          conteudo.classList.add("fade-in");
+        }, 6500);
+      } else {
+        document.getElementById("mensagem-erro").textContent = "Não é essa kkkkk";
+      }
+    }
 
-        function digitarMensagem(texto) {
-            const elemento = document.getElementById("mensagem-digitando");
-            elemento.textContent = "";
-            let i = 0;
-            const intervalo = setInterval(() => {
-                elemento.textContent += texto.charAt(i);
-                i++;
-                if (i >= texto.length) clearInterval(intervalo);
-            }, 50);
-        }
-    </script>
+    function digitarMensagem(texto) {
+      const elemento = document.getElementById("mensagem-digitando");
+      elemento.textContent = "";
+      let i = 0;
+      const intervalo = setInterval(() => {
+        elemento.textContent += texto.charAt(i);
+        i++;
+        if (i >= texto.length) clearInterval(intervalo);
+      }, 50);
+    }
+  </script>
 </body>
 </html>
