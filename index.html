@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
-        #conteudo-principal {
+        #conteudo-principal, #tela-boas-vindas {
             display: none;
         }
 
-        #tela-senha {
+        #tela-senha, #tela-boas-vindas {
             text-align: center;
             padding: 50px;
             color: white;
@@ -38,9 +38,19 @@
             color: #f87171;
             margin-top: 10px;
         }
+
+        .fade-in {
+            animation: fadeIn 1.2s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
+    <!-- TELA DE PERGUNTA -->
     <div id="tela-senha">
         <h2>Antes de entrar...</h2>
         <p>Responda corretamente: <strong>Qual é a nossa data especial?</strong></p>
@@ -49,6 +59,13 @@
         <div id="mensagem-erro" class="erro"></div>
     </div>
 
+    <!-- TELA DE BOAS-VINDAS -->
+    <div id="tela-boas-vindas">
+        <h2 class="fade-in">Bem-vindo, mozi! 💜</h2>
+        <p class="fade-in" style="animation-delay: 0.5s;">Prepare-se para lembrar momentos incríveis com a gente...</p>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
     <div id="conteudo-principal">
         <h1>Contador de Tempo</h1>
         <p>Desde 02/11/2021 às 23:27 se passaram:</p>
@@ -81,7 +98,15 @@
 
             if (resposta === correta || resposta === "02-11-2021") {
                 document.getElementById('tela-senha').style.display = 'none';
-                document.getElementById('conteudo-principal').style.display = 'block';
+                document.getElementById('tela-boas-vindas').style.display = 'block';
+
+                // Após 2.5 segundos, mostrar o conteúdo principal com fade-in
+                setTimeout(() => {
+                    document.getElementById('tela-boas-vindas').style.display = 'none';
+                    const conteudo = document.getElementById('conteudo-principal');
+                    conteudo.style.display = 'block';
+                    conteudo.classList.add('fade-in');
+                }, 2500);
             } else {
                 document.getElementById('mensagem-erro').textContent = "Não é essa kkkkk";
             }
