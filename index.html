@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Te amo, mozi</title>
+    <title>Mozi</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
 
@@ -10,37 +10,9 @@
         body {
             margin: 0;
             overflow-x: hidden;
-        }
-
-        #fundo-estrelado {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .estrela {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            width: 2px;
-            height: 2px;
-            animation: moverEstrela linear infinite;
-            opacity: 0.8;
-        }
-
-        @keyframes moverEstrela {
-            0% {
-                transform: translateY(0);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
+            background: linear-gradient(to right, #4b0082, #1e3a8a);
+            font-family: 'Poppins', sans-serif;
+            color: white;
         }
 
         #conteudo-principal,
@@ -51,48 +23,50 @@
         #tela-senha,
         #tela-boas-vindas {
             text-align: center;
-            padding: 50px 20px;
-            color: white;
+            padding: 80px 20px;
             z-index: 1;
             position: relative;
         }
 
         #tela-senha h2,
         #tela-boas-vindas h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
         }
 
         #tela-senha p,
         #tela-boas-vindas p {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         input {
-            padding: 12px;
-            border-radius: 8px;
+            padding: 16px;
+            border-radius: 10px;
             border: none;
-            font-size: 1.1rem;
-            width: 240px;
+            font-size: 1.2rem;
+            width: 280px;
             max-width: 90%;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         button {
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 14px 28px;
+            border-radius: 10px;
             border: none;
             background-color: #7c3aed;
             color: white;
-            font-size: 1.1rem;
-            margin-top: 15px;
+            font-size: 1.2rem;
+            margin-top: 20px;
             cursor: pointer;
         }
 
         .erro {
             color: #f87171;
-            margin-top: 10px;
-            font-size: 1rem;
+            margin-top: 15px;
+            font-size: 1.1rem;
         }
 
         .fade-in {
@@ -111,10 +85,10 @@
         }
 
         .digitando {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 400;
             color: #dbeafe;
-            margin-top: 10px;
+            margin-top: 20px;
             min-height: 2rem;
             font-family: 'Poppins', sans-serif;
         }
@@ -122,28 +96,26 @@
         @media screen and (max-width: 600px) {
             #tela-senha h2,
             #tela-boas-vindas h2 {
-                font-size: 1.7rem;
+                font-size: 2rem;
             }
 
             #tela-senha p,
             #tela-boas-vindas p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
             input,
             button {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             .digitando {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div id="fundo-estrelado"></div>
-
     <!-- TELA DE PERGUNTA -->
     <div id="tela-senha">
         <h2>Antes de entrar...</h2>
@@ -156,7 +128,7 @@
 
     <!-- TELA DE BOAS-VINDAS -->
     <div id="tela-boas-vindas">
-        <h2 class="fade-in">Bem-vinda, mozi! 💜</h2>
+        <h2 class="fade-in">Bem-vindo, mozi! 💜</h2>
         <p class="digitando" id="mensagem-digitando"></p>
     </div>
 
@@ -196,7 +168,7 @@
                 document.getElementById('tela-senha').style.display = 'none';
                 document.getElementById('tela-boas-vindas').style.display = 'block';
 
-                digitarMensagem("A cada segundo que passa eu te amo ainda mais...");
+                digitarMensagem("Prepare-se para lembrar momentos incríveis com a gente...");
 
                 setTimeout(() => {
                     document.getElementById('tela-boas-vindas').style.display = 'none';
@@ -218,16 +190,6 @@
                 i++;
                 if (i >= texto.length) clearInterval(intervalo);
             }, 50);
-        }
-
-        // Criar estrelas no fundo
-        for (let i = 0; i < 100; i++) {
-            const estrela = document.createElement("div");
-            estrela.classList.add("estrela");
-            estrela.style.left = `${Math.random() * 100}vw`;
-            estrela.style.top = `${Math.random() * -100}vh`;
-            estrela.style.animationDuration = `${Math.random() * 5 + 5}s`;
-            document.getElementById("fundo-estrelado").appendChild(estrela);
         }
     </script>
 </body>
